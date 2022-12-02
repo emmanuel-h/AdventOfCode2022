@@ -1,4 +1,6 @@
-package main.adventofcode;
+package main.adventofcode.day1;
+
+import main.adventofcode.day1.CaloryCounter;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package main.adventofcode;
+package main.adventofcode.day1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +10,7 @@ import java.util.List;
 public class CaloryCounter {
     public int count(int limit) throws IOException {
         List<Elf> elves = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/day1"))) {
             String line;
             Elf elf = new Elf();
             while ((line = reader.readLine()) != null) {

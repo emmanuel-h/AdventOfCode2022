@@ -1,4 +1,4 @@
-package main.adventofcode;
+package main.adventofcode.day1;
 
 public class Elf {
     private int totalCalories;
