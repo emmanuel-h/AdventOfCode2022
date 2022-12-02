@@ -3,7 +3,7 @@ package main.adventofcode.day2;
 public class Round {
 
     private enum Action {
-        WIN(6), LOOSE(0), DRAW(3);
+        WIN(6), DRAW(3), LOOSE(0);
 
         private final int score;
 
@@ -22,39 +22,32 @@ public class Round {
         }
     }
 
-    private final Move opponentMove;
     private final Move myMove;
     private final Action action;
 
     public Round(char opponentMove, char action) {
-        this.opponentMove = switch (opponentMove) {
-            case 'A' -> Move.ROCK;
-            case 'B' -> Move.PAPER;
-            case 'C' -> Move.SCISSOR;
-            default -> throw new RuntimeException();
-        };
         this.action = switch (action) {
             case 'X' -> Action.LOOSE;
             case 'Y' -> Action.DRAW;
             case 'Z' -> Action.WIN;
             default -> throw new RuntimeException();
         };
-        this.myMove = getMove();
+        this.myMove = getMove(opponentMove);
     }
 
     public int score() {
         return this.action.score + myMove.score;
     }
 
-    private Move getMove() {
-        if (this.opponentMove == Move.ROCK) {
+    private Move getMove(char opponentMove) {
+        if (opponentMove == 'A') {
             return switch (this.action) {
                 case WIN -> Move.PAPER;
                 case LOOSE -> Move.SCISSOR;
                 case DRAW -> Move.ROCK;
             };
         }
-        if (this.opponentMove == Move.PAPER) {
+        if (opponentMove == 'B') {
             return switch (this.action) {
                 case WIN -> Move.SCISSOR;
                 case LOOSE -> Move.ROCK;
