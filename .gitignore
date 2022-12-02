@@ -4,4 +4,4 @@ out/
 !**/src/test/**/out/
 *.iml
 /.idea/
-!/AdventOfCode2022.iml
+/AdventOfCode2022.iml
